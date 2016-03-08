@@ -1,6 +1,3 @@
-/**
- * Created by akshayks on 04/03/16.
- */
 public class Name {
     private final String firstName;
     private final String lastName;

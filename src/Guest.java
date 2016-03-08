@@ -1,13 +1,10 @@
-/**
- * Created by akshayks on 04/03/16.
- */
 public class Guest {
     private Name name;
     private Place place;
     private Gender gender;
-    private int age;
+    private Age age;
 
-    public Guest(Name name, Place place, Gender gender, int age) {
+    public Guest(Name name, Place place, Gender gender, Age age) {
         this.name = name;
         this.place = place;
         this.gender = gender;
@@ -15,14 +12,22 @@ public class Guest {
     }
 
     public String getFirstNameFirst(){
-        return gender.getHonorific()+" "+name.firstNameFirst();
+        return String.format("%s %s", gender.getHonorific(), name.firstNameFirst());
     }
 
     public String getLastNameFirst(){
-        return gender.getHonorific()+" "+name.lastNameFirst();
+        return String.format("%s %s", gender.getHonorific(), name.lastNameFirst());
     }
 
     public String getCountry(){
         return place.getCountry();
+    }
+
+    public boolean isEligibleForDrink(int limit) {
+        return age.isAdult(limit);
+    }
+
+    public boolean isNationalityOf(String otherCountry) {
+        return place.isCountry(otherCountry);
     }
 }

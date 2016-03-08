@@ -1,6 +1,4 @@
-/**
- * Created by akshayks on 04/03/16.
- */
+
 public class Place {
     private final String city;
     private final String country;
@@ -18,5 +16,9 @@ public class Place {
 
     public String getCountry() {
         return country;
+    }
+
+    public boolean isCountry(String otherCountry) {
+        return country.equals(otherCountry);
     }
 }
