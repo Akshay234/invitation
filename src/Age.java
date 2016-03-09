@@ -8,4 +8,8 @@ public class Age {
     public boolean isAdult(int limit) {
         return age >= limit;
     }
+
+    public int getAge() {
+        return age;
+    }
 }

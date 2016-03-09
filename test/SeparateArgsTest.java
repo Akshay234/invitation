@@ -5,8 +5,20 @@ import static org.junit.Assert.assertTrue;
 public class SeparateArgsTest {
 
     @Test
+    public void testOfFilesShouldGiveAllCommandsArgsPresentAfterFileSeparatorName() throws Exception {
+        String separatorName = "--Files";
+        String[] args = {"-l", separatorName,"a.txt","b.txt","c"};
+        SeparateArgs SeparateArgs = new SeparateArgs(args);
+        ArrayList<String> expectedResult = new ArrayList<>();
+        expectedResult.add("a.txt");
+        expectedResult.add("b.txt");
+        expectedResult.add("c");
+        assertTrue(SeparateArgs.files().equals(expectedResult));
+    }
+
+    @Test
     public void testOfFilesShouldGiveAllCommandsArgsPresentAfterFileSeparatorSymbol() throws Exception {
-        String separatorSymbol = "--Files";
+        String separatorSymbol = "-F";
         String[] args = {"-l", separatorSymbol,"a.txt","b.txt","c"};
         SeparateArgs SeparateArgs = new SeparateArgs(args);
         ArrayList<String> expectedResult = new ArrayList<>();

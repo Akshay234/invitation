@@ -30,4 +30,8 @@ public class Guest {
     public boolean isNationalityOf(String otherCountry) {
         return place.isCountry(otherCountry);
     }
+
+    public int getAge() {
+        return age.getAge();
+    }
 }

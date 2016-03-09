@@ -5,7 +5,7 @@ import java.util.Objects;
 
 public class LabelPrinter {
 
-    private static ArrayList<HashMap<String, String>> reader(ArrayList files) throws IOException {
+    private static ArrayList<HashMap<String, String>> reader(ArrayList<String> files) throws IOException {
         ReadFile readFile = new ReadFile(files);
         Format format = new Format(readFile.read());
         return format.getData();
@@ -21,15 +21,23 @@ public class LabelPrinter {
 
     public static void main(String[] args) throws IOException {
         SeparateArgs separateArgs = new SeparateArgs(args);
-        ArrayList files = separateArgs.files();
+        ArrayList<String> files = separateArgs.files();
         ArrayList<HashMap<String, String>> guestsRecord = reader(files);
-        ArrayList additionalCommands = separateArgs.additionalCommands();
-        for (HashMap<String, String> guestInfo : guestsRecord) {
-            Guest guest = createGuest(guestInfo);
-            Invitation invite = new Invitation(guest, additionalCommands);
-            System.out.println(invite.getName(args[0]));
+        ArrayList<String> additionalCommands = separateArgs.additionalCommands();
+        try {
+            for (HashMap<String, String> guestInfo : guestsRecord) {
+                Guest guest = createGuest(guestInfo);
+                Invitation invite = new Invitation(guest, additionalCommands);
+                System.out.println(invite.getNameRepresentationBy(args[0]));
+            }
+        }catch (IllegalArgumentException e) {
+            usage();
         }
 
+
+    }
+    private static void usage() {
+        System.out.println("PrintLabel.sh FormatCommand[-fl/--firstLast/-lf/--lastFirst] [Additional Info] fileCommand[-F/--Files] [fileNames]");
     }
 
 

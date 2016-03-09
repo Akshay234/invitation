@@ -2,6 +2,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class GuestTest {
     Guest modi;
@@ -55,5 +57,15 @@ public class GuestTest {
     @Test
     public void testOfGetCountryShouldGiveCountryNameOfFemaleGuest() throws Exception {
         assertEquals(kaley.getCountry(),"USA");
+    }
+
+    @Test
+    public void testOfIsEligibleForDrinkShouldReturnTrueWhenAgeOfGuestIsAboveOrEqualToLimit() throws Exception {
+        assertTrue(kaley.isEligibleForDrink(20));
+    }
+
+    @Test
+    public void testOfIsEligibleForDrinkShouldReturnFalseWhenAgeOfGuestIsABelowLimit() throws Exception {
+        assertFalse(kaley.isEligibleForDrink(25));
     }
 }

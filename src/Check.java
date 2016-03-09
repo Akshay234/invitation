@@ -1,5 +1,5 @@
 
 public interface Check {
-    public boolean isAge(String value);
-    public boolean isCountry(String value);
+    boolean isAge(String value);
+    boolean isCountry(String value);
 }
