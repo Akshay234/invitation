@@ -9,7 +9,7 @@ public class FormatTest {
 
     @Test
     public void testOfGetdataShouldGiveBackFormatedData() throws Exception {
-        ArrayList data = new ArrayList();
+        ArrayList<String> data = new ArrayList<>();
         data.add("A,B,Male,20,bangalore,karnataka,india");
         Format format = new Format(data);
         ArrayList<HashMap<String, String>> formatedData = format.getData();

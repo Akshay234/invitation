@@ -1,5 +1,5 @@
 public class Age {
-    int age;
+    private int age;
 
     public Age(int age) {
         this.age = age;

@@ -2,16 +2,16 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Format {
-    ArrayList data;
+    ArrayList<String> data;
 
-    public Format(ArrayList data) {
+    public Format(ArrayList<String> data) {
         this.data = data;
     }
 
     public ArrayList<HashMap<String, String>> getData() {
         ArrayList<HashMap<String, String>> formatedData = new ArrayList<>();
         for (int i = 0; i < data.size(); i++) {
-            String personData = (String) data.get(i);
+            String personData = data.get(i);
             String[] personInfo = personData.split(",");
             HashMap<String, String> eachPersonInfo = new HashMap<>();
             eachPersonInfo.put("firstName", personInfo[0]);

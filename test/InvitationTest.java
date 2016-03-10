@@ -132,7 +132,7 @@ public class InvitationTest {
         additionalInfo.add("23");
         Invitation invitation = new Invitation(modi, additionalInfo);
         thrown.expect(IllegalArgumentException.class);
-        thrown.expectMessage("wrong format");
+        thrown.expectMessage("there is not format like -a to represent name");
         invitation.getNameRepresentationBy(wrongCommand);
     }
 

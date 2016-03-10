@@ -46,8 +46,12 @@ public class Invitation implements Check {
         return invitationLabel;
     }
 
-    public String getNameRepresentationBy(String format) {
+    private String illegalFormatCommandMessage(String format) {
+        return "there is not format like "+format+" to represent name";
 
+    }
+
+    public String getNameRepresentationBy(String format) {
         if(Objects.equals(format, "-fl") || Objects.equals(format, "--firstLast")){
             return guest.getFirstNameFirst() + extraAttachments();
         }
@@ -55,7 +59,7 @@ public class Invitation implements Check {
             return guest.getLastNameFirst() + extraAttachments();
         }
         else {
-            throw new IllegalArgumentException("wrong format");
+            throw new IllegalArgumentException(illegalFormatCommandMessage(format));
         }
     }
 }

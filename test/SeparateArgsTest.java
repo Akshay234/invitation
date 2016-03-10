@@ -1,8 +1,13 @@
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 import java.util.ArrayList;
 import static org.junit.Assert.assertTrue;
 
 public class SeparateArgsTest {
+
+    @Rule
+    public ExpectedException thrown = ExpectedException.none();
 
     @Test
     public void testOfFilesShouldGiveAllCommandsArgsPresentAfterFileSeparatorName() throws Exception {
@@ -50,5 +55,26 @@ public class SeparateArgsTest {
         expectedResult.add("Bangalore");
         expectedResult.add("14");
         assertTrue(SeparateArgs.additionalCommands().equals(expectedResult));
+    }
+
+    @Test
+    public void testOfFilesShouldGiveExceptionWhenNoSeperatorCommandIsPresent() throws Exception {
+        String formatCommand = "-l";
+        String[] args = {formatCommand,"Bangalore","14","a.txt","b.cvv","c.txt"};
+        SeparateArgs SeparateArgs = new SeparateArgs(args);
+        thrown.expect(IllegalArgumentException.class);
+        thrown.expectMessage("No file separator command detected");
+        SeparateArgs.files();
+    }
+
+    @Test
+    public void testOfFilesShouldGiveExceptionWhenWrongSeperatorCommandIsPresent() throws Exception {
+        String formatCommand = "-l";
+        String fileSeparatorSymbol = "-Files";
+        String[] args = {formatCommand,"Bangalore","14",fileSeparatorSymbol,"a.txt","b.cvv","c.txt"};
+        SeparateArgs SeparateArgs = new SeparateArgs(args);
+        thrown.expect(IllegalArgumentException.class);
+        thrown.expectMessage("No file separator command detected");
+        SeparateArgs.files();
     }
 }

@@ -3,11 +3,13 @@ import java.util.Objects;
 
 public class SeparateArgs {
     private final String[] args;
-    private final String separatorName = "--Files";
-    private final String separatorSymbol = "-F";
 
     public SeparateArgs(String[] args) {
         this.args = args;
+    }
+
+    private boolean isSeparator(String arg){
+        return Objects.equals(arg, "-F") || Objects.equals(arg, "--Files");
     }
 
     public ArrayList<String> files() {
@@ -17,9 +19,12 @@ public class SeparateArgs {
             if (isFileArg) {
                 separatedFiles.add(arg);
             }
-            if (Objects.equals(arg, separatorName) || Objects.equals(arg, separatorSymbol)) {
+            if (isSeparator(arg)) {
                 isFileArg = true;
             }
+        }
+        if(separatedFiles.size() == 0){
+            throw new IllegalArgumentException("No file separator command detected");
         }
         return separatedFiles;
     }
@@ -27,13 +32,12 @@ public class SeparateArgs {
     public ArrayList<String> additionalCommands() {
         ArrayList<String> separatedAdditionalCommands = new ArrayList<>();
         String arg = args[1];
-        int counter = 1;
-        while(!Objects.equals(arg, separatorName) && !Objects.equals(arg, separatorSymbol) && counter < args.length) {
+        int argsFiltered = 0;
+        while(!isSeparator(arg) && argsFiltered < args.length) {
             separatedAdditionalCommands.add(arg);
-            counter++;
-            arg = args[counter];
+            ++argsFiltered;
+            arg = args[argsFiltered+1];
         }
-
         return separatedAdditionalCommands;
     }
 }
