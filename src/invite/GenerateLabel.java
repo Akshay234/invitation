@@ -33,14 +33,6 @@ public class GenerateLabel implements Check {
         return guestInfo.isNationalityOf(value);
     }
 
-//    private String labelByLastNameFirst() {
-//        return guestInfo.getLastNameFirst()+ addCountryToLabel()+ addAgeToLabel();
-//    }
-//
-//    private String labelByFirstNameFirst() {
-//        return guestInfo.getFirstNameFirst()+ addCountryToLabel()+ addAgeToLabel();
-//    }
-
     private String addAgeToLabel() {
         if(filter.getAge() != null && isAge(filter.getAge())){
             return ", "+guestInfo.getAge();

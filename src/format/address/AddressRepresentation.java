@@ -1,4 +1,5 @@
 package format.address;
 
-public class AddressRepresentation {
+public interface AddressRepresentation {
+    String addressFormat();
 }

@@ -1,6 +1,8 @@
 package guest;
 
-public class Place {
+import format.address.AddressRepresentation;
+
+public class Place implements AddressRepresentation {
     private final String city;
     private final String country;
     private final String state;
@@ -9,10 +11,6 @@ public class Place {
         this.city = city;
         this.state = state;
         this.country = country;
-    }
-
-    public String getAddress() {
-        return "city - "+city+", state - "+state+", country - "+country;
     }
 
     public String getCountry() {
@@ -29,5 +27,10 @@ public class Place {
 
     public String getState() {
         return state;
+    }
+
+    @Override
+    public String addressFormat() {
+        return "city - "+city+", state - "+state+", country - "+country;
     }
 }

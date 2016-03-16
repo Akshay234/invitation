@@ -1,4 +1,5 @@
-import guest.Place;
+package guest;
+
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -9,9 +10,9 @@ import static org.junit.Assert.assertEquals;
 public class PlaceTest {
 
     @Test
-    public void testOfGetAddressShouldGiveMefullAddressDetails() throws Exception {
+    public void testOfGetAddressShouldGiveMeFullAddressDetails() throws Exception {
         Place myPlace = new Place("Bangalore","Karnataka","India");
-        assertEquals(myPlace.getAddress(), "city - Bangalore, state - Karnataka, country - India");
+        assertEquals(myPlace.addressFormat(), "city - Bangalore, state - Karnataka, country - India");
     }
 
     @Test
