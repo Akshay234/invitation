@@ -2,8 +2,8 @@ package invite;
 
 import filter.Check;
 import filter.Filter;
-
-import java.util.Objects;
+import format.name.NameFormat;
+import format.name.NameRepresentation;
 
 public class GenerateLabel implements Check {
 
@@ -33,13 +33,13 @@ public class GenerateLabel implements Check {
         return guestInfo.isNationalityOf(value);
     }
 
-    private String labelByLastNameFirst() {
-        return guestInfo.getLastNameFirst()+ addCountryToLabel()+ addAgeToLabel();
-    }
-
-    private String labelByFirstNameFirst() {
-        return guestInfo.getFirstNameFirst()+ addCountryToLabel()+ addAgeToLabel();
-    }
+//    private String labelByLastNameFirst() {
+//        return guestInfo.getLastNameFirst()+ addCountryToLabel()+ addAgeToLabel();
+//    }
+//
+//    private String labelByFirstNameFirst() {
+//        return guestInfo.getFirstNameFirst()+ addCountryToLabel()+ addAgeToLabel();
+//    }
 
     private String addAgeToLabel() {
         if(filter.getAge() != null && isAge(filter.getAge())){
@@ -62,16 +62,21 @@ public class GenerateLabel implements Check {
         return "there is not format like "+wrongNameFormat+" to represent name";
     }
 
+    private String labelWithAddition(String formattedName) {
+        return String.format("%s%s%s",formattedName,addCountryToLabel(),addAgeToLabel());
+    }
+
     public String generate() {
-        String nameFormat = filter.nameFormat();
-        if(Objects.equals(nameFormat, "-fl")){
-            return labelByFirstNameFirst();
-        }
-        if(Objects.equals(nameFormat, "-lf")){
-            return labelByLastNameFirst();
+        String nameFormatCommand = filter.nameFormat();
+        NameFormat nameFormat = new NameFormat(nameFormatCommand);
+        if(nameFormat.isCorrect()) {
+            NameRepresentation nameRepresentation = nameFormat.getFormattedName();
+            return labelWithAddition(nameRepresentation.formatName(guestInfo.getFirstName(),guestInfo.getLastName(),guestInfo.getGender()));
         }
         else {
-            throw new IllegalArgumentException(illegalNameFormatMessage(nameFormat));
+            throw new IllegalArgumentException(illegalNameFormatMessage(nameFormatCommand));
         }
     }
+
+
 }

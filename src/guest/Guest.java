@@ -13,14 +13,6 @@ public class Guest {
         this.age = age;
     }
 
-    public String getFirstNameFirst(){
-        return String.format("%s %s", gender.getHonorific(), name.firstNameFirst());
-    }
-
-    public String getLastNameFirst(){
-        return String.format("%s %s", gender.getHonorific(), name.lastNameFirst());
-    }
-
     public String getCountry(){
         return place.getCountry();
     }
@@ -43,5 +35,17 @@ public class Guest {
 
     public String getState() {
         return place.getState();
+    }
+
+    public String getFirstName() {
+        return name.getFirstName();
+    }
+
+    public String getLastName() {
+        return name.getLastName();
+    }
+
+    public String getGender() {
+        return gender.getHonorific();
     }
 }

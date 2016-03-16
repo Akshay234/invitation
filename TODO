@@ -1,0 +1,135 @@
+Create Library which generate label(representation of given record).
+
+Input:-
+    list of records in a file.
+    Record dataParser:-
+        firstName,lastName,gender,age,city,state,country
+Output:-
+    1. prefix first last
+    2. prefix last first
+        Prefix
+            MALE - Mr
+            FEMALE - Ms
+
+----------------------------------------------------------------------
+Version 1 SETUP
+$ cat record
+A,B,MALE,20,bangalore,karnataka,India
+
+-> input from command line:
+    $ java printLabel -f --Files records.txt
+        OR
+    $ java printLabel --firstLast --Files records.txt
+        OR
+    $ java printLabel -f -F records.txt
+        OR
+    $ java printLabel --firstLast -F records.txt
+
+ output printed:
+    Mr A B
+
+-> input from command line:
+    $ java printLabel -l --Files records.txt
+        OR
+    $ java printLabel --lastFirst --Files records.txt
+        OR
+    $ java printLabel -l -F records.txt
+        OR
+    $ java printLabel --lastFirst -F records.txt
+
+ output printed:
+    Mr B, A
+
+-----------------------------------------------------------------------
+Version 2 SETUP
+$ cat record
+A,B,MALE,20,bangalore,karnataka,india
+C,D,MALE,20,gurgaon,haryana,india
+
+-> input from command line:
+    $ java printLabel -fl bangalore --Files records.txt
+        OR
+    $ java printLabel --firstLast bangalore --Files records.txt
+
+ output printed:
+    Mr A B, bangalore
+    Mr C D
+
+-> input from command line:
+    $ java printLabel -lf bangalore --Files records.txt
+        OR
+    $ java printLabel --lastFirst bangalore --Files records.txt
+        OR
+    $ java printLabel -lf bangalore  -F records.txt
+            OR
+        $ java printLabel --lastFirst bangalore -F records.txt
+
+ output printed:
+    Mr B, A, bangalore
+    Mr D, C
+
+-----------------------------------------------------------------------
+Version 3 SETUP
+$ cat record
+A,B,MALE,40,bangalore,karnataka,india
+C,D,MALE,20,gurgaon,haryana,india
+
+-> input from command line:
+    $ java printLabel -f 23 --Files records.txt
+        OR
+    $ java printLabel --firstLast bangalore --Files records.txt
+        OR
+    $ java printLabel -f 23 --F records.txt
+        OR
+    $ java printLabel --firstLast bangalore --F records.txt
+
+ output printed:
+    Mr A B, 40
+    Mr C D
+
+-> input from command line:
+   $ java printLabel -lf 23 --Files records.txt
+         OR
+     $ java printLabel --lastFirst 23 --Files records.txt
+         OR
+     $ java printLabel -lf 23  -F records.txt
+         OR
+     $ java printLabel --lastFirst 23 -F records.txt
+
+ output printed:
+    Mr B, A, 40
+    Mr D, A
+
+-----------------------------------------------------------------
+Setup of .sh files
+    fileName-
+        inviteByFirstLast - will give name by firstNameFirst dataParser.
+        inviteByLastFirst - will give name by lastNameFirst dataParser.
+
+-----------------------------------------------------------------
+
+Version 4 Setup
+
+-> input from command line:
+   inviteByFirstLast -c Bangladesh -a 23 -B -F records.txt
+        or
+   inviteByFirstLast -c Bangladesh -a 23 -B -F records.txt
+
+Output
++----------------------+
+| Mr John Smith        |
+|----------------------|
+| New Delhi, Karnataka |
+| India                |
++----------------------+
+
+and
+
++----------------------+
+| Mr Smith, John       |
+|----------------------|
+| New Delhi, Karnataka |
+| India                |
++----------------------+
+
+

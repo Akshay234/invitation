@@ -21,14 +21,6 @@ public class GuestInfo {
         return guest.getAge();
     }
 
-    public String getFirstNameFirst() {
-        return guest.getFirstNameFirst();
-    }
-
-    public String getLastNameFirst() {
-        return guest.getLastNameFirst();
-    }
-
     public String getCity() {
         return guest.getCity();
     }
@@ -39,5 +31,17 @@ public class GuestInfo {
 
     public String getCountry() {
         return guest.getCountry();
+    }
+
+    public String getFirstName() {
+        return guest.getFirstName();
+    }
+
+    public String getLastName() {
+        return guest.getLastName();
+    }
+
+    public String getGender() {
+        return guest.getGender();
     }
 }

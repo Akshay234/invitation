@@ -25,16 +25,16 @@ public class GuestListTest {
     @Test
     public void testOfGetDetailsOfShouldGiveTheInfoOfGuest() throws Exception {
         GuestInfo modi = guestList.getDetailsOf(0);
-        assertEquals(modi.getFirstNameFirst(),"Mr narender modi");
-        assertEquals(modi.getLastNameFirst(),"Mr modi, narender");
+        assertEquals(modi.getFirstName(),"narender");
+        assertEquals(modi.getLastName(),"modi");
         assertEquals(modi.getCountry(),"india");
         assertEquals(modi.getState(),"gujarat");
         assertEquals(modi.getCity(),"mahsana");
         assertEquals(modi.getAge(),23);
 
         GuestInfo sodi = guestList.getDetailsOf(1);
-        assertEquals(sodi.getFirstNameFirst(),"Mr surender sodi");
-        assertEquals(sodi.getLastNameFirst(),"Mr sodi, surender");
+        assertEquals(sodi.getFirstName(),"surender");
+        assertEquals(sodi.getLastName(),"sodi");
         assertEquals(sodi.getCountry(),"india");
         assertEquals(sodi.getState(),"karnataka");
         assertEquals(sodi.getCity(),"bangalore");

@@ -6,16 +6,14 @@ public class Name {
 
     public Name(String firstName, String lastName) {
         this.firstName = firstName;
-        this.lastName = lastName; 
+        this.lastName = lastName;
     }
 
-    public String firstNameFirst() {
-        return String.format("%s %s", firstName,lastName);
-//        return firstName +" "+ lastName;
+    public String getFirstName() {
+        return this.firstName;
     }
 
-    public String lastNameFirst() {
-        return String.format("%s, %s", lastName, firstName);
-//        return lastName + ", "+ firstName;
+    public String getLastName() {
+        return this.lastName;
     }
 }

@@ -1,4 +1,5 @@
-import guest.*;
+package guest;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -30,12 +31,12 @@ public class GuestTest {
 
     @Test
     public void testOfGetFirstNameFirstShouldGiveFormalNameRepresentationOfMaleGuest() throws Exception {
-        assertEquals(modi.getFirstNameFirst(),"Mr narender modi");
+        assertEquals(modi.getFirstName(),"narender");
     }
 
     @Test
     public void testOfGetLastNameFirstShouldGiveInformalNameRepresentationOfMaleGuest() throws Exception {
-        assertEquals(modi.getLastNameFirst(),"Mr modi, narender");
+        assertEquals(modi.getLastName(),"modi");
     }
 
     @Test
@@ -45,12 +46,12 @@ public class GuestTest {
 
     @Test
     public void testOfGetFirstNameFirstShouldGiveFormalNameRepresentationOfFemaleGuest() throws Exception {
-        assertEquals(kaley.getFirstNameFirst(),"Ms kaley cuco");
+        assertEquals(kaley.getFirstName(),"kaley");
     }
 
     @Test
     public void testOfGetLastNameFirstShouldGiveInformalNameRepresentationOfFemaleGuest() throws Exception {
-        assertEquals(kaley.getLastNameFirst(),"Ms cuco, kaley");
+        assertEquals(kaley.getLastName(),"cuco");
     }
 
     @Test

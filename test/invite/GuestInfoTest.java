@@ -51,12 +51,12 @@ public class GuestInfoTest {
 
     @Test
     public void testOfGetFirstNameFirstShouldGiveFirstNameBeforeSurnameWithPrefix() throws Exception {
-        assertTrue(guestInfo.getFirstNameFirst().equals("Mr narender modi"));
+        assertTrue(guestInfo.getFirstName().equals("narender"));
     }
 
     @Test
     public void testOfGetLastNameFirstShouldGiveSurnameBeforeFirstNameWithPrefix() throws Exception {
-        assertTrue(guestInfo.getLastNameFirst().equals("Mr modi, narender"));
+        assertTrue(guestInfo.getLastName().equals("modi"));
     }
 
     @Test
