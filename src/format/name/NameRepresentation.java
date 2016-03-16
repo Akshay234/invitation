@@ -1,4 +1,6 @@
 package format.name;
 
-public class NameRepresentation {
+public interface NameRepresentation {
+
+    String formatName(String firstName, String lastName);
 }
