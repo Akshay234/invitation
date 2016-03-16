@@ -1,6 +1,7 @@
 package invite;
 
-import guest.Guest;
+import format.name.NameRepresentation;
+import guestDetails.Guest;
 
 public class GuestInfo {
     private Guest guest;
@@ -9,28 +10,16 @@ public class GuestInfo {
         this.guest = guest;
     }
 
-    public boolean isEligibleForDrink(int limit) {
-        return guest.isEligibleForDrink(limit);
+    public boolean isAbove(int limit) {
+        return guest.isAboveTheAgeOf(limit);
     }
 
     public boolean isNationalityOf(String otherCountry) {
         return guest.isNativeOf(otherCountry);
     }
 
-    public int getAge() {
-        return guest.getAge();
-    }
-
-    public String getCity() {
-        return guest.getCity();
-    }
-
-    public String getState() {
-        return guest.getState();
-    }
-
-    public String getCountry() {
-        return guest.getCountry();
+    public String nameRepresentationWith(NameRepresentation nameRepresentation) {
+        return guest.nameFormattedName(nameRepresentation);
     }
 
     public String getFirstName() {
@@ -43,5 +32,13 @@ public class GuestInfo {
 
     public String getGender() {
         return guest.getGender();
+    }
+
+    public String addressLabel() {
+        return guest.addressLabel();
+    }
+
+    public int getAge() {
+        return guest.getAge();
     }
 }

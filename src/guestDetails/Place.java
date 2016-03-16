@@ -1,4 +1,4 @@
-package guest;
+package guestDetails;
 
 import format.address.AddressRepresentation;
 
@@ -13,24 +13,12 @@ public class Place implements AddressRepresentation {
         this.country = country;
     }
 
-    public String getCountry() {
-        return country;
-    }
-
     public boolean isCountry(String otherCountry) {
         return country.equals(otherCountry);
     }
 
-    public String getCity() {
-        return city;
-    }
-
-    public String getState() {
-        return state;
-    }
-
     @Override
     public String addressFormat() {
-        return "city - "+city+", state - "+state+", country - "+country;
+        return String.format("%s %s\n%s",city,state,country);
     }
 }

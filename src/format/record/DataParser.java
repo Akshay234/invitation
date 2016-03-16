@@ -2,15 +2,16 @@ package format.record;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class DataParser {
-    ArrayList<String> data;
+    List<String> data;
 
-    public DataParser(ArrayList<String> data) {
+    public DataParser(List<String> data) {
         this.data = data;
     }
 
-    public ArrayList<HashMap<String, String>> parse() {
+    public List<HashMap<String, String>> parse() {
             ArrayList<HashMap<String, String>> formattedData = new ArrayList<>();
             for (int i = 0; i < data.size(); i++) {
                 String personData = data.get(i);

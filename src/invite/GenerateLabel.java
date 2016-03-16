@@ -15,14 +15,11 @@ public class GenerateLabel implements Check {
         this.filter = filter;
     }
 
-    public String getAddressLabel() {
-        return guestInfo.getCity() +" "+ guestInfo.getState() +"\n"+ guestInfo.getCountry();
-    }
 
     @Override
-    public boolean isAge(String value) {
+    public boolean isAgeAbove(String value) {
         try {
-            return guestInfo.isEligibleForDrink(Integer.parseInt(value));
+            return guestInfo.isAbove(Integer.parseInt(value));
         }catch(NumberFormatException e) {
             return false;
         }
@@ -34,14 +31,18 @@ public class GenerateLabel implements Check {
     }
 
     private String addAgeToLabel() {
-        if(filter.getAge() != null && isAge(filter.getAge())){
+        if(filter.age() != null && isAgeAbove(filter.age())){
             return ", "+guestInfo.getAge();
         }
         return "";
     }
 
+    public String addressLabel() {
+        return guestInfo.addressLabel();
+    }
+
     private String addCountryToLabel() {
-        String[] countries = filter.getCountries();
+        String[] countries = filter.countries();
         for (String country : countries) {
             if(isCountry(country)){
                 return ", "+country;
@@ -55,15 +56,15 @@ public class GenerateLabel implements Check {
     }
 
     private String labelWithAddition(String formattedName) {
-        return String.format("%s%s%s",formattedName,addCountryToLabel(),addAgeToLabel());
+        return String.format("%s %s%s%s",guestInfo.getGender(),formattedName,addCountryToLabel(),addAgeToLabel());
     }
 
     public String generate() {
         String nameFormatCommand = filter.nameFormat();
         NameFormat nameFormat = new NameFormat(nameFormatCommand);
         if(nameFormat.isCorrect()) {
-            NameRepresentation nameRepresentation = nameFormat.getFormattedName();
-            return labelWithAddition(nameRepresentation.formatName(guestInfo.getFirstName(),guestInfo.getLastName(),guestInfo.getGender()));
+            NameRepresentation nameRepresentation = nameFormat.getNameRepresentation();
+            return labelWithAddition(guestInfo.nameRepresentationWith(nameRepresentation));
         }
         else {
             throw new IllegalArgumentException(illegalNameFormatMessage(nameFormatCommand));

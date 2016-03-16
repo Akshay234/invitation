@@ -1,6 +1,6 @@
 package invite;
 
-import guest.*;
+import guestDetails.*;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -26,12 +26,12 @@ public class GuestInfoTest {
 
     @Test
     public void testOfGetIsEligibleForDrinkingShouldGiveCheckResultWhenThresholdLimitIsHigherThanGuestAge() throws Exception {
-        assertTrue(guestInfo.isEligibleForDrink(21));
+        assertTrue(guestInfo.isAbove(21));
     }
 
     @Test
     public void testOfGetIsEligibleForDrinkingShouldGiveCheckResultWhenThresholdLimitIsLowerThanGuestAge() throws Exception {
-        assertFalse(guestInfo.isEligibleForDrink(36));
+        assertFalse(guestInfo.isAbove(36));
     }
 
     @Test

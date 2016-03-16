@@ -1,2 +1,2 @@
 rm -rf out/*;
-javac -cp "src" -d out src/LabelPrinter.java && cd ./out && java LabelPrinter -lf $*
+javac -cp "src" -d out src/app/LabelPrinter.java && cd ./out && java app/LabelPrinter -lf $*

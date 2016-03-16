@@ -1,4 +1,4 @@
-package guest;
+package guestDetails;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -61,11 +61,11 @@ public class GuestTest {
 
     @Test
     public void testOfIsEligibleForDrinkShouldReturnTrueWhenAgeOfGuestIsAboveOrEqualToLimit() throws Exception {
-        assertTrue(kaley.isEligibleForDrink(20));
+        assertTrue(kaley.isAboveTheAgeOf(20));
     }
 
     @Test
     public void testOfIsEligibleForDrinkShouldReturnFalseWhenAgeOfGuestIsABelowLimit() throws Exception {
-        assertFalse(kaley.isEligibleForDrink(25));
+        assertFalse(kaley.isAboveTheAgeOf(25));
     }
 }

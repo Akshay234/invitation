@@ -1,4 +1,4 @@
-import guest.Name;
+import guestDetails.Name;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

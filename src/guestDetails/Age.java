@@ -1,4 +1,4 @@
-package guest;
+package guestDetails;
 
 public class Age {
     private int age;
@@ -7,7 +7,7 @@ public class Age {
         this.age = age;
     }
 
-    public boolean isAdult(int limit) {
+    public boolean isGreaterThanOrEqualTo(int limit) {
         return age >= limit;
     }
 

@@ -1,4 +1,4 @@
-import guest.Gender;
+import guestDetails.Gender;
 import org.junit.Test;
 
 import static org.junit.Assert.assertTrue;

@@ -15,7 +15,7 @@ public class Filter {
         this.args = args;
     }
 
-    public ArrayList<String> files() {
+    public List<String> files() {
         ArrayList<String> separatedFiles = new ArrayList<>();
 
         if(argsList.contains(fileSeparatorCommand)){
@@ -36,7 +36,7 @@ public class Filter {
         return -1;
     }
 
-    public String[] getCountries() {
+    public String[] countries() {
         if(argsList.contains(countrySeparatorCommand)){
             int countriesStartingIndex = argsList.indexOf(countrySeparatorCommand)+1;
             int countriesEndingIndex = nextCommandIndex(argsList.indexOf(countrySeparatorCommand));
@@ -45,7 +45,7 @@ public class Filter {
         return new String[0];
     }
 
-    public String getAge() {
+    public String age() {
         if(argsList.contains(ageSeparatorCommand)){
             if(!argsList.get(argsList.indexOf(ageSeparatorCommand) + 1).startsWith("-")){
                 return argsList.get(argsList.indexOf(ageSeparatorCommand) + 1);

@@ -1,13 +1,12 @@
-import filter.Filter;
+package filter;
+
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
 import java.util.ArrayList;
 
-import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class FilterTest {
 
@@ -35,7 +34,7 @@ public class FilterTest {
         thrown.expectMessage("No file separator command detected");
         Filter.files();
     }
-//
+
     @Test
     public void testOfFilesShouldGiveExceptionWhenWrongSeparatorCommandIsPresent() throws Exception {
         String nameFormatCommand = "-lf";
@@ -55,7 +54,7 @@ public class FilterTest {
         Filter filter = new Filter(args);
         String[] expectedResult = new String[1];
         expectedResult[0] = "bangladesh";
-        assertArrayEquals(filter.getCountries(),expectedResult);
+        assertArrayEquals(filter.countries(),expectedResult);
     }
 
     @Test
@@ -67,7 +66,7 @@ public class FilterTest {
         expectedResult[0] = "bangladesh";
         expectedResult[1] = "a.txt";
         expectedResult[2] = "b.txt";
-        assertArrayEquals(filter.getCountries(),expectedResult);
+        assertArrayEquals(filter.countries(),expectedResult);
     }
 
     @Test
@@ -77,7 +76,7 @@ public class FilterTest {
         String[] args = {"-lf", countrySeparatorCommand,fileSeparatorSymbol,"a.txt","b.txt","c"};
         Filter filter = new Filter(args);
         String[] expectedResult = new String[0];
-        assertArrayEquals(filter.getCountries(),expectedResult);
+        assertArrayEquals(filter.countries(),expectedResult);
     }
 
     @Test
@@ -86,7 +85,7 @@ public class FilterTest {
         String[] args = {"-lf","Bangladesh",fileSeparatorSymbol,"a.txt","b.txt","c"};
         Filter filter = new Filter(args);
         String[] expectedResult = new String[0];
-        assertArrayEquals(filter.getCountries(),expectedResult);
+        assertArrayEquals(filter.countries(),expectedResult);
     }
 
 //    ---------------------
@@ -98,7 +97,7 @@ public class FilterTest {
         String[] args = {"-lf", ageSeparatorCommand,"23",separatorSymbol,"a.txt","b.txt","c"};
         Filter filter = new Filter(args);
         String expectedResult= "23";
-        assertEquals(filter.getAge(),expectedResult);
+        assertEquals(filter.age(),expectedResult);
     }
 
     @Test
@@ -107,7 +106,7 @@ public class FilterTest {
         String[] args = {"-lf", ageSeparatorCommand,"13","bangladesh","a.txt","b.txt"};
         Filter filter = new Filter(args);
         String expectedResult = "13";
-        assertEquals(filter.getAge(),expectedResult);
+        assertEquals(filter.age(),expectedResult);
     }
 
     @Test
@@ -117,7 +116,7 @@ public class FilterTest {
         String[] args = {"-lf", ageSeparatorCommand,separatorSymbol,"a.txt","b.txt","c"};
         Filter filter = new Filter(args);
         String expectedResult = "";
-        assertEquals(filter.getAge(),expectedResult);
+        assertEquals(filter.age(),expectedResult);
     }
 
     @Test
@@ -126,7 +125,7 @@ public class FilterTest {
         String[] args = {"-lf","Bangladesh",fileSeparatorSymbol,"a.txt","b.txt","c"};
         Filter filter = new Filter(args);
         String expectedResult = "";
-        assertEquals(filter.getAge(),expectedResult);
+        assertEquals(filter.age(),expectedResult);
     }
 
     @Test

@@ -1,6 +1,6 @@
 package invite;
 
-import guest.*;
+import guestDetails.*;
 
 import java.util.HashMap;
 import java.util.List;
@@ -19,7 +19,7 @@ public class GuestList {
         return new Guest(name, place, gender, guestAge);
     }
 
-    public void addAll(ArrayList<HashMap<String, String>> guestsRecord) {
+    public void addAll(List<HashMap<String, String>> guestsRecord) {
         for (HashMap<String, String> guestInfo : guestsRecord) {
             guestList.add(createGuest(guestInfo));
         }

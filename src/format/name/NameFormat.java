@@ -14,7 +14,7 @@ public class NameFormat {
         nameFormats.put("-lf",new LastNameFirst());
     }
 
-    public NameRepresentation getFormattedName() {
+    public NameRepresentation getNameRepresentation() {
         return nameFormats.get(format);
     }
 

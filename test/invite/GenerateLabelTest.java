@@ -1,5 +1,5 @@
 import filter.Filter;
-import guest.*;
+import guestDetails.*;
 import invite.GenerateLabel;
 import invite.GuestInfo;
 import org.junit.Before;

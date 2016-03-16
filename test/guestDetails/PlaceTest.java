@@ -1,4 +1,4 @@
-package guest;
+package guestDetails;
 
 import org.junit.Test;
 

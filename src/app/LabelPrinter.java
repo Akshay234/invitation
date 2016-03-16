@@ -1,3 +1,5 @@
+package app;
+
 import filter.Filter;
 import invite.Invitation;
 import reader.ReadFile;

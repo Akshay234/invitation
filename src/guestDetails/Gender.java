@@ -1,4 +1,4 @@
-package guest;
+package guestDetails;
 
 public enum Gender {
     FEMALE("Ms"),

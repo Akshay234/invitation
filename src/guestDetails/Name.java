@@ -1,4 +1,6 @@
-package guest;
+package guestDetails;
+
+import format.name.NameRepresentation;
 
 public class Name {
     private final String firstName;
@@ -9,11 +11,7 @@ public class Name {
         this.lastName = lastName;
     }
 
-    public String getFirstName() {
-        return this.firstName;
-    }
-
-    public String getLastName() {
-        return this.lastName;
+    public String representNameUsing(NameRepresentation nameRepresentation) {
+        return nameRepresentation.formatName(firstName,lastName);
     }
 }

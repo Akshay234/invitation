@@ -12,7 +12,7 @@ public class ReadFile {
     private String[] lineWiseData;
     private List<String> filesList;
 
-    public ReadFile(ArrayList<String> files) {
+    public ReadFile(List<String> files) {
         this.filesList = files;
     }
 
@@ -30,7 +30,7 @@ public class ReadFile {
         }
     }
 
-    public ArrayList<String> read() throws IOException {
+    public List<String> read() throws IOException {
         ArrayList<String> filesData = new ArrayList<>();
         for (String file : filesList) {
             scan(file);
