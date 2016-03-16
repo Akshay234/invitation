@@ -1,3 +1,4 @@
+package filter;
 
 public interface Check {
     boolean isAge(String value);

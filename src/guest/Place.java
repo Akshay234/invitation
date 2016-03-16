@@ -1,3 +1,4 @@
+package guest;
 
 public class Place {
     private final String city;
@@ -20,5 +21,13 @@ public class Place {
 
     public boolean isCountry(String otherCountry) {
         return country.equals(otherCountry);
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public String getState() {
+        return state;
     }
 }

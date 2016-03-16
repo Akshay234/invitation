@@ -1,3 +1,5 @@
+package guest;
+
 public class Guest {
     private Name name;
     private Place place;
@@ -27,11 +29,19 @@ public class Guest {
         return age.isAdult(limit);
     }
 
-    public boolean isNationalityOf(String otherCountry) {
+    public boolean isNativeOf(String otherCountry) {
         return place.isCountry(otherCountry);
     }
 
     public int getAge() {
         return age.getAge();
+    }
+
+    public String getCity() {
+        return place.getCity();
+    }
+
+    public String getState() {
+        return place.getState();
     }
 }

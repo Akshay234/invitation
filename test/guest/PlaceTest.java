@@ -1,3 +1,4 @@
+import guest.Place;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

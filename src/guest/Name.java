@@ -1,3 +1,5 @@
+package guest;
+
 public class Name {
     private final String firstName;
     private final String lastName;
@@ -8,10 +10,12 @@ public class Name {
     }
 
     public String firstNameFirst() {
-        return firstName +" "+ lastName;
+        return String.format("%s %s", firstName,lastName);
+//        return firstName +" "+ lastName;
     }
 
     public String lastNameFirst() {
-        return lastName + ", "+ firstName;
+        return String.format("%s, %s", lastName, firstName);
+//        return lastName + ", "+ firstName;
     }
 }
